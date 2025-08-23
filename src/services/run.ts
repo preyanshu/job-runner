@@ -1,5 +1,5 @@
 import axios from "axios";
-import { WalletSnapshot } from "./models/WalletSnapshot";
+import { WalletSnapshot } from "../models/WalletSnapshot";
 
 interface Transaction {
   hash: string;

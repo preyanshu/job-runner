@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { NFTSnapshot } from './models/NFTSnapshot'; // Adjust path as needed
+import { NFTSnapshot } from '../models/NFTSnapshot'; // Adjust path as needed
 
 // Type definitions for NFT transaction data structure
 interface NFTTokenInfo {

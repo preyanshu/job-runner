@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { MemeCoinSnapshot } from './models/MemeCoinSnapshot'; // Adjust path as needed
+import { MemeCoinSnapshot } from '../models/MemeCoinSnapshot'; // Adjust path as needed
 
 // Type definitions for the transaction data structure
 interface TokenInfo {
