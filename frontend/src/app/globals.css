@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  body {
+    background-color: #262624;
+    color: white;
+  }
+  /* Custom color scheme with specified colors */
+  :root {
+    --background: 20 7% 15%; /* #262624 */
+    --foreground: 0 0% 98%;
+    --card: 23 8% 18%; /* #30302E */
+    --card-foreground: 0 0% 98%;
+    --popover: 20 7% 15%; /* #262624 */
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 84% 60%; /* Red */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 23 8% 18%; /* #30302E */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 23 8% 18%; /* #30302E */
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 84% 60%; /* Red */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%; /* Red */
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 25%; /* Lighter border */
+    --input: 23 8% 18%; /* #30302E */
+    --ring: 0 84% 60%; /* Red */
+    --chart-1: 0 84% 60%; /* Red */
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.75rem;
+    
+    /* Custom red variations */
+    --red: 0 84% 60%; /* Main red */
+    --red-bright: 0 100% 67%; /* Brighter red */
+    --red-muted: 0 60% 50%; /* Muted red */
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #262624;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a48;
+  border-radius: 8px;
+  border: 2px solid #262624;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a5a58;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #262624;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #4a4a48;
+  border-radius: 6px;
+  border: 1px solid #262624;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #5a5a58;
+}
+
+/* Typing animation for dots */
+.typing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Red blinking animation */
+@keyframes redBlink {
+  0%, 100% { 
+    opacity: 1; 
+    background-color: #ef4444;
+  }
+  50% { 
+    opacity: 0.3; 
+    background-color: #dc2626;
+  }
+}
+
+.animate-red-blink {
+  animation: redBlink 1.5s ease-in-out infinite;
+}
+
+.typing-dots span {
+  height: 4px;
+  width: 4px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  animation: pulse-dot 1.4s ease-in-out infinite both;
+}
+
+.typing-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0s;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { 
+    opacity: 0.4; 
+  }
+  50% { 
+    opacity: 1; 
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Code syntax highlighting */
+pre {
+  background-color: #1a1a18;
+  @apply rounded-lg p-4 overflow-x-auto text-sm text-gray-300;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+code {
+  background-color: #1a1a18;
+  @apply px-1 py-0.5 rounded text-sm;
+  color: #dc2626;
+  word-wrap: break-word;
+}
+
+pre code {
+  @apply bg-transparent p-0 text-gray-300;
+  word-wrap: break-word;
+}
+
+/* Markdown content styling */
+.prose {
+  max-width: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  @apply font-semibold text-white mt-4 mb-2;
+  word-wrap: break-word;
+}
+
+.prose h1 { @apply text-2xl; }
+.prose h2 { @apply text-xl; }
+.prose h3 { @apply text-lg; }
+.prose h4 { @apply text-base; }
+
+.prose p {
+  @apply mb-3 leading-relaxed;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.prose ul, .prose ol {
+  @apply mb-3 pl-6;
+}
+
+.prose li {
+  @apply mb-1;
+  word-wrap: break-word;
+}
+
+.prose blockquote {
+  @apply border-l-4 pl-4 italic text-gray-400 my-4;
+  border-color: #3a3a38;
+  word-wrap: break-word;
+}
+
+.prose table {
+  @apply w-full border-collapse;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.prose th, .prose td {
+  @apply border px-4 py-2 text-left;
+  border-color: #3a3a38;
+  word-wrap: break-word;
+}
+
+.prose th {
+  background-color: #30302E;
+  @apply font-semibold text-white;
+}
+
+.prose td {
+  @apply text-gray-300;
+}
+
+/* Custom red color utilities */
+.text-red {
+  color: hsl(var(--red));
+}
+
+.text-red-bright {
+  color: hsl(var(--red-bright));
+}
+
+.text-red-muted {
+  color: hsl(var(--red-muted));
+}
+
+.border-red {
+  border-color: hsl(var(--red));
+}
+
+.border-red-bright {
+  border-color: hsl(var(--red-bright));
+}
+
+.border-red-muted {
+  border-color: hsl(var(--red-muted));
+}
+
+.bg-red {
+  background-color: hsl(var(--red));
+}
+
+.bg-red-bright {
+  background-color: hsl(var(--red-bright));
+}
+
+.bg-red-muted {
+  background-color: hsl(var(--red-muted));
+}
+
+/* Ensure everything breaks properly */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

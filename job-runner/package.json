@@ -1,0 +1,30 @@
+{
+  "name": "job-runner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "docker:start": "docker-compose up -d",
+    "docker:stop": "docker-compose down",
+    "start": "npx ts-node src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "docker:run": "npm run docker:start && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "axios": "^1.11.0",
+    "bullmq": "^5.58.0",
+    "fastify": "^5.5.0",
+    "fastify-cors": "^6.0.3",
+    "fastify-plugin": "^5.0.1",
+    "ioredis": "^5.7.0",
+    "mongoose": "^8.17.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2"
+  }
+}
